@@ -14,23 +14,16 @@ export default function AuthLayout({children}:{children: ReactNode}) {
          style={{
           background:
             "linear-gradient(160deg, #3D1152 0%, #442563 70%, #5a1f7a 100%)",}}>
-            <Link href="/" className={buttonVariants({variant: 'outline', className: 'absolute top-4 left-4'})}> <ArrowLeft className="size-4"/>Volver</Link>
+            
             <div className="flex w-full max-w-sm flex-col gap-6"> 
                 <Link href="/" className="flex items-center gap-2 self-center font-medium">  
-                    <div className="flex flex-col items-center mb-8">
-                        <Image src="/brand/logo-reserva.png" alt="Elige Sentirte Bien" width={80} height={10}/>
-                        <h1
-                            className="text-white text-2xl font-bold text-center leading-tight"
-                            style={{ fontFamily: "'Fraunces', serif" }}
-                        >
-                            Bienvenido de nuevo
-                        </h1>
-                        <p className="text-white/60 text-sm mt-1 text-center">
-                            Ingresa a tu espacio de bienestar
-                        </p>
-                    </div>
+                    
+                        <Image src="/brand/logo-reserva.png" alt="Elige Sentirte Bien" width={180} height={180}/>
+
                 </Link>
                 {children} 
+                <Link href="/" className=" bg-transparent flex items text-white px-4 mx-4" >
+                <ArrowLeft></ArrowLeft>  Volver </Link>
             </div>
             <div className="text-balance text-center text-xs text-muted-foreground mt-6">
                     Al continuar aceptas nuestros{" "}
