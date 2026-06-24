@@ -139,7 +139,7 @@ const [menuOpen, setMenuOpen] = useState(false);
 </nav>
     {/* HERO SECTION */}
     <section
-        className="relative w-full py-24"
+        className="relative w-full py-24 flex "
          style={{
           background:
             "linear-gradient(160deg, #3D1152 0%, #442563 70%, #5a1f7a 100%)",
@@ -155,7 +155,7 @@ const [menuOpen, setMenuOpen] = useState(false);
           }}
         />
 
-        <div className="relative z-10 max-w-md w-full mx-auto"
+        <div className="relative z-10 max-w-md mx-auto px-6"
         >
           {/* Back button */}
           <Link

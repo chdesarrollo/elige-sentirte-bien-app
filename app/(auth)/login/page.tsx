@@ -8,6 +8,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
+import Image from "next/image";
+
+import { ArrowLeft, Lock, Unlock, Mail } from "lucide-react";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -29,52 +32,57 @@ export default function LoginPage() {
         console.log("LOGIN ERROR:", error);
         alert(error.message);
       }
-      const res = await fetch("/api/check-user?email=" + email);
-      const user = await res.json();
-
-      if (!user.emailVerified) {
-        alert("Por favor, verifica tu correo electrónico antes de iniciar sesión");
-        return;
-      }
     });
   };
 
   return (
-    <form onSubmit={handleLogin}>
-      <Card>
+    <form onSubmit={handleLogin} className="flex flex-col gap-4 mb-6">
+      <Card className="bg-white/10 backdrop-blur-md rounded-3xl p-6 border border-white/15 shadow-2xl">
         <CardHeader>
           <CardTitle className="text-xl">Iniciar sesión</CardTitle>
           <CardDescription>Inicia sesión con tu correo</CardDescription>
         </CardHeader>
 
         <CardContent className="flex flex-col gap-4">
-          <div className="grid gap-3">
-            <div className="grid gap-2">
-              <Label>Correo electrónico</Label>
-              <Input
+          <div className="flex flex-col gap-1.5">
+              <label className="text-white/80 text-xs font-semibold uppercase tracking-widest">
+                Correo electrónico
+              </label>
+              <div className="relative">
+                <Mail size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-white/40 pointer-events-none" />
+                
+                  <Input
                 type="email"
                 placeholder="correo@ejemplo.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 disabled={isPending}
               />
+              </div>
             </div>
 
-            <div className="grid gap-2">
-              <Label>Contraseña</Label>
-              <Input
+            <div className="flex flex-col gap-1.5">
+              <div className="flex items-center justify-between">
+                <label className="text-white/80 text-xs font-semibold uppercase tracking-widest">
+                  Contraseña
+                </label>
+                
+              </div>
+              <div className="relative">
+                <Lock size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-white/40 pointer-events-none" />
+                <Input
                 type="password"
                 placeholder="********"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 disabled={isPending}
               />
+                
+              </div>
             </div>
-
-            <Button type="submit" className="w-full" disabled={isPending}>
+             <Button type="submit" disabled={isPending} className="w-full mt-2 w-full bg-[#F44C7F] hover:bg-[#e03870] active:scale-[0.98] transition-all text-white font-semibold py-3.5 rounded-xl shadow-lg shadow-[#F44C7F]/30 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2">
               {isPending ? "Iniciando sesión..." : "Continuar"}
             </Button>
-          </div>
           <Link href="/register" className="text-balance text-center text-xs text-muted-foreground">
                     ¿No tienes una cuenta?{" "}
                     <span className="underline cursor-pointer">

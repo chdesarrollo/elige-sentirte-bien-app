@@ -32,7 +32,6 @@ export default function Home() {
       <div className="flex items-center justify-center">
         <Image src="/brand/white-icon.png" alt="Elige Sentirte Bien" width={80} height={10}/>
         <span className="text-white text-xl font-italic font-bold">
-          Elige Sentirte Bien
         </span>
         </div>
     </Link>
@@ -84,7 +83,7 @@ export default function Home() {
 
       <Button asChild>
         <Link href="/register">
-          Comenzar
+          Regístrate
         </Link>
       </Button>
 
@@ -95,7 +94,7 @@ export default function Home() {
 
       <Button asChild size="sm">
         <Link href="/register">
-          Comenzar
+          Regístrate
         </Link>
       </Button>
 
