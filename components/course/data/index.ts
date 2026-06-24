@@ -18,14 +18,18 @@ import { venciendoMisMiedos } from "./adultos/emocional/venciendo-mis-miedos";
 import { viviendoElAquiYElAhora } from "./adultos/emocional/viviendo-el-aqui-y-el-ahora";
 import { unDueloConAmorPorFallecimiento } from "./adultos/emocional/un-duelo-con-amor-por-fallecimiento";
 import { yoPuedoSanarMiAdiccion } from "./adultos/emocional/yo-puedo-sanar-mi-adiccion";
-
-
+import { claridadEmocionalYMental } from "./adultos/emocional/claridad-emocional-y-mental";
+import { gestionEmocionalConsciente } from "./adultos/emocional/gestion-emocional-consciente";
+import { mejorarMiAutoestima } from "./adultos/emocional/mejorar-mi-autoestima";
+import { porQueElijoLoQueMeHaceDano } from "./adultos/emocional/por-que-elijo-lo-que-me-hace-dano";
+import { soltarElAutosabotaje } from "./adultos/emocional/soltar-el-autosabotaje";
 
 // Cursos de adultos, dimensión física
 
 import { comoFuncionaTuEnergia } from "./adultos/fisica/como-funciona-tu-energia";  
+import { habitosQueDrenanTuEnergia } from "./adultos/fisica/habitos-que-drenan-tu-energia";
+import { senalesDeAlertaAntesDelAgotamientoFisico } from "./adultos/fisica/senales-de-alerta-antes-del-agotamiento-fisico";
 
-
-export const courses = [planMaestro, alcanzaTusMetas, comoFuncionaTuEnergia, amorPropio, aprendeADecirNo, gestionDelEstres, gestionDeEmociones, laGratitud, liberateDeLaCulpa, gestionDePensamientos, misHabitosDeExito, propositoDeVida, sanandoElCorazon, sanandoMiPasado, sanandoMiRelacionConMiPadre, sanandoMiRelacionConMiMadre, venciendoMisMiedos, viviendoElAquiYElAhora, unDueloConAmorPorFallecimiento, yoPuedoSanarMiAdiccion];
+export const courses = [planMaestro, alcanzaTusMetas, comoFuncionaTuEnergia, amorPropio, aprendeADecirNo, gestionDelEstres, gestionDeEmociones, laGratitud, liberateDeLaCulpa, gestionDePensamientos, misHabitosDeExito, propositoDeVida, sanandoElCorazon, sanandoMiPasado, sanandoMiRelacionConMiPadre, sanandoMiRelacionConMiMadre, venciendoMisMiedos, viviendoElAquiYElAhora, unDueloConAmorPorFallecimiento, yoPuedoSanarMiAdiccion, habitosQueDrenanTuEnergia, claridadEmocionalYMental, gestionEmocionalConsciente, mejorarMiAutoestima, porQueElijoLoQueMeHaceDano, soltarElAutosabotaje, senalesDeAlertaAntesDelAgotamientoFisico];
 
 

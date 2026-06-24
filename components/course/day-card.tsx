@@ -24,6 +24,14 @@ export function DayCard({
 {
   const [checked, setChecked] = useState<boolean[]>([]);
   const [notes, setNotes] = useState("");
+  const [answers, setAnswers] = useState<string[]>(
+  () => day.questions.map(() => "")
+);
+const handleAnswerChange = (value: string, index: number) => {
+  const updated = [...answers];
+  updated[index] = value;
+  setAnswers(updated);
+};
 
   if (!isActive) {
   return (
@@ -108,7 +116,7 @@ export function DayCard({
 
     <div>
       <p className="text-xs uppercase tracking-wider text-[#7A5A8A]">
-        Lectura
+        Actividad
       </p>
 
       <h3 className="font-semibold text-[#3D1152]">
@@ -178,25 +186,59 @@ export function DayCard({
     </div>
   </div>
 </div>
-<div className="bg-[#FAF5FF] border border-[#F0E8F8] rounded-2xl p-4">
-  <p className="text-[11px] font-bold uppercase tracking-widest text-[#3D1152] mb-3">
-    Reflexión
+<div className="bg-[#FAF5FF] border border-[#F0E8F8] rounded-2xl p-4 space-y-4">
+  <p className="text-[11px] font-bold uppercase tracking-widest text-[#3D1152]">
+    Reflexión guiada
   </p>
 
-  <div className="space-y-2">
+  {/* Preguntas con input */}
+  <div className="space-y-4">
     {day.questions.map((q, i) => (
-      <p
-        key={i}
-        className="text-sm text-[#7A5A8A]"
-      >
-        • {q}
-      </p>
+      <div key={i} className="space-y-2">
+        <p className="text-sm text-[#7A5A8A]">
+          • {q}
+        </p>
+
+        <Textarea
+          value={answers[i]}
+          onChange={(e) => handleAnswerChange(e.target.value, i)}
+          placeholder="Escribe tu respuesta aquí..."
+          className="
+            bg-white
+            border-[#E8DDF1]
+            focus:border-[#F44C7F]
+            focus:ring-[#F44C7F]/20
+            rounded-xl
+            text-sm
+            text-[#3D1152]
+          "
+        />
+      </div>
     ))}
   </div>
 
-  <p className="text-xs italic text-[#9CA3AF] mt-3">
-    Escribe tus reflexiones en tu cuaderno.
-  </p>
+  {/* Reflexión libre */}
+  <div className="pt-2">
+    <p className="text-xs font-semibold text-[#3D1152] mb-2">
+      Reflexión personal (opcional)
+    </p>
+
+    <Textarea
+      value={notes}
+      onChange={(e) => setNotes(e.target.value)}
+      placeholder="Escribe aquí tu reflexión general del día..."
+      className="
+        bg-white
+        border-[#E8DDF1]
+        focus:border-[#F44C7F]
+        focus:ring-[#F44C7F]/20
+        rounded-xl
+        text-sm
+        text-[#3D1152]
+        min-h-[100px]
+      "
+    />
+  </div>
 </div>
 <div className="flex gap-3">
   <div className="w-8 h-8 rounded-lg bg-amber-50 flex items-center justify-center">
@@ -245,7 +287,19 @@ export function DayCard({
   </p>
 </div>
 <Button
-  onClick={onComplete}
+  onClick={() => {
+    const payload = {
+      day: day.day,
+      title: day.title,
+      answers,
+      notes,
+      timestamp: new Date().toISOString(),
+    };
+
+    console.log("DAY COMPLETED:", payload);
+
+    onComplete();
+  }}
   className="
     w-full
     bg-[#F44C7F]

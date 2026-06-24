@@ -11,10 +11,15 @@ import Image from "next/image";
 import { ArrowLeft, Heart, Lock, Unlock } from "lucide-react";
 
 
-
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { auth } from "@/lib/auth";
   
 
 export default function CoursePage() {
+    const router = useRouter();
+
+  
   
   const { id } = useParams();
   const course = courses.find((c) => c.id === id);
@@ -35,6 +40,7 @@ export default function CoursePage() {
   const progress = Math.round(
     (completedDays.length / course.days.length) * 100
   );
+  
 
   return (
     <main>

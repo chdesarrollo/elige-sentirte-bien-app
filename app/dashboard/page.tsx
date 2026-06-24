@@ -68,9 +68,7 @@ const [menuOpen, setMenuOpen] = useState(false);
         </div>
     </Link>
 
-        <Button onClick={handleLogout} variant="ghost">
-          Cerrar Sesión
-        </Button>
+        
 
     {/* MENÚ DESKTOP */}
     <div className="hidden md:flex items-center gap-8">
